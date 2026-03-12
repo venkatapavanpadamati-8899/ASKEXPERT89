@@ -1,9 +1,14 @@
+
 import { useState, useEffect, createContext, useContext, useCallback } from "react";
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
 // ─── CONFIG ──────────────────────────────────────────────────────────────────
-const SUPABASE_URL = "YOUR_SUPABASE_URL";
-const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY";
+
+// Load Supabase credentials from .env
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+const SUPABASE_ANON_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+// Create Supabase client
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // ─── AUTH CONTEXT ─────────────────────────────────────────────────────────────
